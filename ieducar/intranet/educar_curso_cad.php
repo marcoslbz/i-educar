@@ -286,6 +286,12 @@ return new class extends clsCadastro
     public function Novo()
     {
         if ($this->incluir != 'S' && empty($this->excluir_)) {
+
+            if ($this->qtd_etapas <= 0) {
+                $this->mensagem = 'A quantidade de etapas deve ser maior que zero.<br>';
+                return false;
+            }
+
             $this->carga_horaria = str_replace(search: '.', replace: '', subject: $this->carga_horaria);
             $this->carga_horaria = str_replace(search: ',', replace: '.', subject: $this->carga_horaria);
             $this->hora_falta = str_replace(search: '.', replace: '', subject: $this->hora_falta);
@@ -338,6 +344,12 @@ return new class extends clsCadastro
     public function Editar()
     {
         if ($this->incluir != 'S' && empty($this->excluir_)) {
+            
+            if ($this->qtd_etapas <= 0) {
+                $this->mensagem = 'A quantidade de etapas deve ser maior que zero.<br>';
+                return false;
+            }
+            
             $this->carga_horaria = str_replace(search: '.', replace: '', subject: $this->carga_horaria);
             $this->carga_horaria = str_replace(search: ',', replace: '.', subject: $this->carga_horaria);
             $this->hora_falta = str_replace(search: '.', replace: '', subject: $this->hora_falta);
